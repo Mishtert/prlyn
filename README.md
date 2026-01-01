@@ -160,7 +160,7 @@ Every PR triggers a 4-stage pipeline:
 3.  **Test**: Unit tests (`pytest`).
 4.  **Build**: Package verification (`uv build`).
 
-Refer to [CONTRIBUTING.md](file:///Users/mthangaraj/my_projects/sage/prlyn/CONTRIBUTING.md) for more details.
+Refer to [CONTRIBUTING.md](https://github.com/Mishtert/prlyn/blob/main/CONTRIBUTING.md) for more details.
 
 ---
 

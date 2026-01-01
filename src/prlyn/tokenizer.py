@@ -11,12 +11,12 @@ class Tokenizer:
         self.encoding = tiktoken.get_encoding("cl100k_base")
         try:
             self.nlp = spacy.load(model_name)
-        except OSError as e:
-            # Re-raise with a more helpful message for the library user
-            raise ImportError(
-                f"Spacy model {model_name} not found. "
-                f"Please run 'python -m spacy download {model_name}'"
-            ) from e
+        except OSError:
+            print(f"Downloading Spacy model '{model_name}'...")
+            from spacy.cli import download
+
+            download(model_name)
+            self.nlp = spacy.load(model_name)
 
     def count_tokens(self, text: str) -> int:
         return len(self.encoding.encode(text))
