@@ -26,5 +26,17 @@ Thank you for your interest in contributing to prlyn! We welcome contributions o
 - Write clear commit messages.
 - Provide a detailed PR description.
 
+### 5. Release Process (Maintainers Only)
+To publish a new version to PyPI:
+1.  Update `version` in `pyproject.toml`.
+2.  Commit the change: `git commit -am "chore: bump version to X.Y.Z"`
+3.  Push the commit: `git push`
+4.  Create and push a tag:
+    ```bash
+    git tag vX.Y.Z
+    git push origin vX.Y.Z
+    ```
+The `publish.yml` workflow will automatically build and upload the package to PyPI using Trusted Publishing.
+
 ## Code of Conduct
 Please be respectful and professional in all interactions.

@@ -2,6 +2,8 @@
 
 [![PyPI version](https://img.shields.io/pypi/v/prlyn.svg)](https://pypi.org/project/prlyn/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CI](https://github.com/Mishtert/prlyn/actions/workflows/ci.yml/badge.svg)](https://github.com/Mishtert/prlyn/actions/workflows/ci.yml)
+[![Downloads](https://static.pepy.tech/badge/prlyn)](https://pepy.tech/project/prlyn)
 
 **prlyn** is a professional-grade static analysis tool for LLM prompts. Beyond basic linting, it provides a comprehensive suite of linguistic, security, and model-specific metrics to ensure your prompts are robust, efficient, and safe for production.
 
@@ -41,16 +43,16 @@ Use the `--model` flag to tailor analysis to specific LLM quirks:
 
 ---
 
-## 📦 Quick Start
+## 🚀 Quick Start (CLI)
 
-Run **prlyn** directly without cloning or manual installation using `uvx`:
+For **human users** who want to manually scan a prompt. No installation required.
 
 ```bash
 # Basic analysis
-uvx --from git+https://github.com/mthangaraj/prlyn prlyn "Your prompt here..."
+uvx --from git+https://github.com/Mishtert/prlyn prlyn "Your prompt here..."
 
 # Show all options
-uvx --from git+https://github.com/mthangaraj/prlyn prlyn --help
+uvx --from git+https://github.com/Mishtert/prlyn prlyn --help
 ```
 
 ---
@@ -60,18 +62,24 @@ uvx --from git+https://github.com/mthangaraj/prlyn prlyn --help
 ### CLI Usage
 ```bash
 # Basic analysis (if already running via uvx as shown above)
-uvx --from git+https://github.com/mthangaraj/prlyn prlyn "Your prompt here..."
+uvx --from git+https://github.com/Mishtert/prlyn prlyn "Your prompt here..."
 ```
 
 # Model-specific analysis
 prlyn "..." --model gpt-4
 
-# Compare current version to history
-prlyn "..." --diff
+# 1. Run analysis (saved automatically)
+prlyn "Initial draft..."
+
+# 2. Iterate and compare against your last run
+prlyn "Improved draft..." --diff
 ---
 
-### MCP Server (For AI Agents)
-prlyn is a first-class **Model Context Protocol (MCP)** server. AI agents can use it to self-correct their own prompt generation.
+---
+
+## 🤖 For AI Agents (MCP Server)
+
+For **AI Assistants** (Claude, Cursor, Antigravity) to self-correct and optimize prompts.
 
 #### 1. Claude Desktop
 Add this to your `claude_desktop_config.json`:
@@ -81,7 +89,7 @@ Add this to your `claude_desktop_config.json`:
     "prlyn": {
       "command": "uvx",
       "args": [
-        "--from", "git+https://github.com/mthangaraj/prlyn",
+        "--from", "git+https://github.com/Mishtert/prlyn",
         "prlyn"
       ]
     }
@@ -94,7 +102,7 @@ Add this to your `claude_desktop_config.json`:
 2. Click **+ Add New MCP Server**.
 3. Name: `prlyn`
 4. Type: `command`
-5. Command: `uvx --from git+https://github.com/mthangaraj/prlyn prlyn`
+5. Command: `uvx --from git+https://github.com/Mishtert/prlyn prlyn`
 
 #### 3. Antigravity
 Add the following to your MCP configuration:
@@ -104,7 +112,7 @@ Add the following to your MCP configuration:
     "prlyn": {
       "command": "uvx",
       "args": [
-        "--from", "git+https://github.com/mthangaraj/prlyn",
+        "--from", "git+https://github.com/Mishtert/prlyn",
         "prlyn"
       ]
     }
@@ -134,11 +142,30 @@ If you want to contribute to **prlyn**:
 
 ```bash
 # Clone the repository
-git clone https://github.com/mthangaraj/prlyn.git
+git clone https://github.com/Mishtert/prlyn.git
 cd prlyn
 
 # Install dependencies and setup environment
 uv sync
+
+# Run pipeline locally
+uv run pytest
+uv run pre-commit run --all-files
 ```
 
+### CI/CD Pipeline
+Every PR triggers a 4-stage pipeline:
+1.  **Quality**: Linting (`ruff`) and Type Checking (`mypy`).
+2.  **Security**: Vulnerability scanning (`bandit`).
+3.  **Test**: Unit tests (`pytest`).
+4.  **Build**: Package verification (`uv build`).
+
 Refer to [CONTRIBUTING.md](file:///Users/mthangaraj/my_projects/sage/prlyn/CONTRIBUTING.md) for more details.
+
+---
+
+## 🔒 Privacy & Telemetry
+**prlyn respects your privacy.**
+- **No Home**: prlyn does not send any data to external servers.
+- **Local Analysis**: All NLP and scanning happens locally on your machine.
+- **Usage Tracking**: We rely solely on public [PyPI download stats](https://pepy.tech/project/prlyn) to gauge interest.

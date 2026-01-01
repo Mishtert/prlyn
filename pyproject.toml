@@ -22,8 +22,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/mthangaraj/prlyn"
-Repository = "https://github.com/mthangaraj/prlyn"
+Homepage = "https://github.com/Mishtert/prlyn"
+Repository = "https://github.com/Mishtert/prlyn"
 
 [project.scripts]
 prlyn = "prlyn.server:run"
@@ -37,5 +37,11 @@ build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = [
+    "bandit>=1.9.2",
+    "mypy>=1.19.1",
+    "pre-commit>=4.5.1",
     "pytest>=9.0.2",
+    "pytest-cov>=7.0.0",
+    "ruff>=0.14.10",
+    "types-requests>=2.32.4.20250913",
 ]
