@@ -104,12 +104,34 @@ This is self-correcting prompt engineering. The agent tightens its own instructi
 
 Add this to your MCP configuration (works for Claude Desktop, Cursor, Windsurf, Antigravity):
 
+#### Standard (via uvx)
+Recommended for most users. No installation required.
+
 ```json
 {
   "mcpServers": {
     "prlyn": {
       "command": "uvx",
-      "args": ["prlyn"]
+      "args": ["--quiet", "prlyn"]
+    }
+  }
+}
+```
+
+#### Local Development
+If you are developing `prlyn` locally and want to use your current changes:
+
+```json
+{
+  "mcpServers": {
+    "prlyn": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/mthangaraj/my_projects/sage/prlyn",
+        "run",
+        "prlyn"
+      ]
     }
   }
 }

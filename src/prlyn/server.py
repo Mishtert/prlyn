@@ -128,7 +128,7 @@ def run() -> None:
             else:
                 print(result.model_dump_json(indent=2))
     else:
-        mcp.run()
+        mcp.run(transport="stdio", show_banner=False)
 
 
 if __name__ == "__main__":
