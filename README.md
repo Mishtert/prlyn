@@ -128,7 +128,7 @@ If you are developing `prlyn` locally and want to use your current changes:
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/mthangaraj/my_projects/sage/prlyn",
+        "/absolute/path/to/prlyn",
         "run",
         "prlyn"
       ]
