@@ -141,6 +141,9 @@ If you are developing `prlyn` locally and want to use your current changes:
 
 **Cursor/Windsurf/Antigravity**: Add to your MCP settings and restart.
 
+> [!NOTE]
+> **First-call latency:** The first `analyze_prompt` call takes ~20-30s to load ML models (Spacy, SentenceTransformer). Subsequent calls are instant. Models stay cached for the lifetime of the MCP server process.
+
 ### How to Use It
 
 Once configured, you don't need to do anything special. Just ask your agent to analyze or improve a prompt:

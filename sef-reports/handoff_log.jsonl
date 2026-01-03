@@ -26,3 +26,4 @@
 {"timestamp": "2025-12-31T08:49:34.038450+00:00", "event": "agent_activation", "user": "mishtert@gmail.com", "agent": "strategist"}
 {"timestamp": "2026-01-02T17:46:58.678714+00:00", "event": "agent_activation", "user": "mishtert@gmail.com", "agent": "forensic_engineer"}
 {"timestamp": "2026-01-02T17:47:23.025204+00:00", "event": "escalation", "user": "mishtert@gmail.com", "level": "L1", "from_agent": "forensic_engineer", "to_agents": ["forensic_engineer"], "reason": "MCP configuration error: nested \"prlyn\" key prevents command field from being recognized", "story_id": "INCIDENT-MCP-CONFIG"}
+{"timestamp": "2026-01-03T11:20:25.881712+00:00", "event": "agent_activation", "user": "mishtert@gmail.com", "agent": "strategist"}

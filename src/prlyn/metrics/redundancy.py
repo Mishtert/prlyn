@@ -12,9 +12,17 @@ import numpy as np
 
 class RedundancyAnalyzer:
     def __init__(self, model_name: str = "all-MiniLM-L6-v2"):
-        self.model = SentenceTransformer(model_name)
+        self._model = None
+        self._model_name = model_name
         # Threshold 0.70 distance roughly lower bound for similarity > 0.75
         self.threshold = 0.70
+
+    @property
+    def model(self) -> SentenceTransformer:
+        """Lazy-load SentenceTransformer on first access."""
+        if self._model is None:
+            self._model = SentenceTransformer(self._model_name)
+        return self._model
 
     def analyze(self, sentences: List[ClassifiedSentence]) -> RedundancyScore:
         clusters_found = []

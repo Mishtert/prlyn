@@ -1,6 +1,6 @@
 [project]
 name = "prlyn"
-version = "0.1.4"
+version = "0.1.5"
 description = "A powerful, extensible tool for analyzing LLM prompts."
 readme = "README.md"
 authors = [
